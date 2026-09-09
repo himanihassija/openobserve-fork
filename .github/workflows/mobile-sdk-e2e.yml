@@ -369,7 +369,7 @@ jobs:
           grep -q 'folder = "/tmp/dist/"' src/web/src/lib.rs
           cargo build --profile release-ci
           test -f target/release-ci/openobserve
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: oo-linux-binary
           path: target/release-ci/openobserve
@@ -378,7 +378,7 @@ jobs:
       # mode — the binary serves the dashboard from /tmp/dist at RUNTIME rather than embedding it. So
       # ship the built UI too (same as playwright.yml's frontend-dist); the device job extracts it to
       # /tmp/dist so /web serves and the dashboard-UI tests can run.
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: oo-linux-frontend
           path: /tmp/dist
@@ -416,14 +416,14 @@ jobs:
           grep -q 'folder = "/tmp/dist/"' src/web/src/lib.rs
           cargo build --profile release-ci
           test -f target/release-ci/openobserve
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: oo-macos-binary
           path: target/release-ci/openobserve
           if-no-files-found: error
       # Ship the built UI too (release-ci is disk-read; see build_oo_linux note) so the iOS job's OO
       # serves /web and the dashboard-UI tests can run.
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: oo-macos-frontend
           path: /tmp/dist
@@ -616,7 +616,7 @@ jobs:
 
       - name: Upload blob report (merged by merge_reports)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: blob-report-android
           path: tests/mobile-testing/blob-report
@@ -811,7 +811,7 @@ jobs:
 
       - name: Upload blob report (merged by merge_reports)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: blob-report-ios
           path: tests/mobile-testing/blob-report
@@ -853,7 +853,7 @@ jobs:
           test -f playwright-report/index.html && echo "merged report OK" || echo "::warning::no merged index.html produced"
       - name: Upload merged HTML report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mobile-report-merged
           path: tests/mobile-testing/playwright-report

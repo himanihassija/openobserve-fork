@@ -245,14 +245,14 @@ jobs:
           test -f /tmp/dist/index.html
 
       - name: Upload binary artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: release-ci-binary-${{ github.sha }}
           path: target/x86_64-unknown-linux-gnu/release-ci/openobserve
           retention-days: 1
 
       - name: Upload frontend artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: frontend-dist-${{ github.sha }}
           path: /tmp/dist
@@ -590,7 +590,7 @@ jobs:
 
       - name: Upload blob report to GitHub Actions Artifacts
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: blob-report-${{ matrix.testfolder }}-attempt-${{ github.run_attempt }}
           path: tests/ui-testing/blob-report
@@ -760,7 +760,7 @@ jobs:
 
       - name: Upload merged report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: merged-report-${{ github.run_attempt }}
           path: tests/ui-testing/playwright-results
