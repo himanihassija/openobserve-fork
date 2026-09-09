@@ -115,7 +115,7 @@ jobs:
     outputs:
       suite_ok: ${{ steps.validate.outputs.suite_ok }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
 
@@ -177,7 +177,7 @@ jobs:
       run_android: ${{ steps.d.outputs.run_android }}
       run_ios: ${{ steps.d.outputs.run_ios }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       # Which platform's files changed in this PR? (only evaluated for pull_request events)
       - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
         id: filter
@@ -346,7 +346,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/github-auth
       - uses: dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772 # master
         with:
@@ -396,7 +396,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/github-auth
       - uses: dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772 # master
         with:
@@ -449,7 +449,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Test the LATEST SDK on a release event: the mobile-sdk-release dispatch carries {sdk, version};
       # a manual run can also override via the sdk/sdk_version inputs. Unset → committed pin (reproducible).
@@ -636,7 +636,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Resolve SDK version override
         # Untrusted dispatch payload / manual inputs arrive via env (NEVER interpolated into the
@@ -828,7 +828,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
       - name: Install suite deps

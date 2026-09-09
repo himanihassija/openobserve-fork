@@ -45,7 +45,7 @@ jobs:
       # Debounce: a push inside this window cancels the run (concurrency) before anything paid starts.
       - if: github.event_name == 'pull_request'
         run: sleep 60
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -83,7 +83,7 @@ jobs:
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
 
       - name: Checkout git repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -137,7 +137,7 @@ jobs:
       contents: read  # only need to checkout the repo
     steps:
       - name: Checkout git repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Download OpenObserve debug binary
         uses: actions/download-artifact@v5
@@ -251,7 +251,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout git repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Download OpenObserve debug binary
         uses: actions/download-artifact@v5
@@ -358,7 +358,7 @@ jobs:
             env: "ZO_FEATURE_JOIN_MATCH_ONE_ENABLED=false"
             target: tests/regression/test_logs_to_logs_join.py
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Download OpenObserve debug binary
         uses: actions/download-artifact@v5
@@ -449,7 +449,7 @@ jobs:
       contents: read  # only need to checkout the repo
     steps:
       - name: Checkout git repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Download OpenObserve debug binary
         uses: actions/download-artifact@v5
@@ -592,7 +592,7 @@ jobs:
       contents: read
     steps:
       - name: Clone the current repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       # Pull every per-shard junit. NO merge-multiple: each artifact lands in its
       # own subdir (api-junit__<category>__<leg>) so the parser can read the test
       # CATEGORY from the dir name. Missing artifacts are non-fatal.

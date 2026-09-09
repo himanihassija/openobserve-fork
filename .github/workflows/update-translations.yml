@@ -89,7 +89,7 @@ jobs:
 
     steps:
       - name: Checkout PR branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           token: ${{ secrets.TRANSLATIONS_APPROVE_TOKEN || secrets.GITHUB_TOKEN }}
           # This job runs PR-authored code (requirements.txt, main.py,
