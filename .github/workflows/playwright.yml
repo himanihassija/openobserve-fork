@@ -358,7 +358,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Download binary artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: ${{ needs.resolve_binary.outputs.binary_artifact_name }}
           path: release-ci-binary
@@ -367,7 +367,7 @@ jobs:
           run-id: ${{ needs.resolve_binary.outputs.run_id }}
 
       - name: Download frontend artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: ${{ needs.resolve_binary.outputs.frontend_artifact_name }}
           path: /tmp/dist
@@ -637,7 +637,7 @@ jobs:
         run: cd tests/ui-testing && npm ci
 
       - name: Download blob reports from GitHub Actions Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         continue-on-error: true
         id: download_blobs
         with:

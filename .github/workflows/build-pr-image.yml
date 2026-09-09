@@ -156,7 +156,7 @@ jobs:
           bash ./.github/protoc.sh
 
       - name: Download frontend artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: frontend-dist
           path: web/dist
@@ -263,7 +263,7 @@ jobs:
           bash ./.github/protoc.sh
 
       - name: Download frontend artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: frontend-dist
           path: web/dist

@@ -494,7 +494,7 @@ jobs:
 
       - name: Download shared Playwright OpenObserve binary
         if: needs.resolve_oo_linux.outputs.reuse == 'true'
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: release-ci-binary-${{ github.sha }}
           path: oo-bin
@@ -503,13 +503,13 @@ jobs:
           run-id: ${{ needs.resolve_oo_linux.outputs.run_id }}
       - name: Download fallback OpenObserve binary
         if: needs.resolve_oo_linux.outputs.reuse != 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: oo-linux-binary
           path: oo-bin
       - name: Download shared Playwright web UI
         if: needs.resolve_oo_linux.outputs.reuse == 'true'
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: frontend-dist-${{ github.sha }}
           path: /tmp/dist
@@ -518,7 +518,7 @@ jobs:
           run-id: ${{ needs.resolve_oo_linux.outputs.run_id }}
       - name: Download fallback OpenObserve web UI
         if: needs.resolve_oo_linux.outputs.reuse != 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: oo-linux-frontend
           path: /tmp/dist
@@ -681,12 +681,12 @@ jobs:
       # build_oo_linux) and shared as an artifact — this job just downloads and runs it, so iterating
       # on the iOS suite never recompiles OpenObserve (same pattern as Android + playwright.yml).
       - name: Download OpenObserve binary (built from PR source)
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: oo-macos-binary
           path: oo-bin
       - name: Download OpenObserve web UI (so /web serves for the dashboard tests)
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: oo-macos-frontend
           path: /tmp/dist
@@ -835,7 +835,7 @@ jobs:
         working-directory: tests/mobile-testing
         run: npm ci || npm install
       - name: Download all blob reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: tests/mobile-testing/all-blob-reports
           pattern: blob-report-*
