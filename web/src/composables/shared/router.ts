@@ -23,7 +23,7 @@ import type { LocationQuery, LocationQueryRaw, RouteLocationRaw } from "vue-rout
 import config from "@/aws-exports";
 import { resolveTraceSearchMode, type TraceSearchMode } from "@/ts/interfaces/traces/trace.types";
 import store from "@/stores";
-import Home from "@/views/HomeView.vue";
+import Home from "@/views/CustomHome.vue";
 import ImportDashboard from "@/views/Dashboards/ImportDashboard.vue";
 import About from "@/views/About.vue";
 import MemberSubscription from "@/views/MemberSubscription.vue";
